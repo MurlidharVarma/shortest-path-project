@@ -1,0 +1,7 @@
+<div class="pageContainer">
+    <div class="gridContainer">
+        <div *ngFor="let row of gridRows" class="rowDiv">
+            <box *ngFor="let col of gridCols" [row]="row" [col]="col"></box>
+        </div>
+    </div>
+</div>

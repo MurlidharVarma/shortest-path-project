@@ -1,0 +1,23 @@
+@import '../../../theme.scss';
+
+$boxSize: 20px;
+
+.boxStyle{
+    width: $boxSize;
+    height: $boxSize;
+    border-color: mat-color($primary);
+    border-width: 1px;
+    border-style: solid;
+    padding:0px;
+    margin:0px;
+}
+
+.boxDefaultStyle{
+    @extend .boxStyle;
+    background:#f8f8f8;
+}
+
+.boxSelectedStyle{
+    @extend .boxStyle;
+    background: lightsalmon;
+}
