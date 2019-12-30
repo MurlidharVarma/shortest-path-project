@@ -1,7 +1,12 @@
 <div class="pageContainer">
+    <mat-card class="toolsContainer mat-elevation-z8">
+        <button mat-stroked-button color="primary" [ngClass]="{'buttonSelected': (boxAction == 'START')}" (click)="setBoxAction('START')">Pick Start Box - {{boxAction == 'START'?'ON':'OFF'}}</button>
+        <button mat-stroked-button color="primary" [ngClass]="{'buttonSelected':  (boxAction == 'BLOCKER')}" (click)="setBoxAction('BLOCKER')">Toggle Draw Blockers - {{boxAction == 'BLOCKER'?'ON':'OFF'}}</button>
+        <button mat-stroked-button color="primary" [ngClass]="{'buttonSelected':  (boxAction == 'DESTINATION')}" (click)="setBoxAction('DESTINATION')">Pick Destination Box - {{boxAction == 'DESTINATION'?'ON':'OFF'}}</button>
+    </mat-card>
     <div class="gridContainer">
         <div *ngFor="let row of gridRows" class="rowDiv">
-            <box *ngFor="let col of gridCols" [row]="row" [col]="col"></box>
+            <box  *ngFor="let col of gridCols" [node]="gridArr[row][col]" [boxAction]="boxAction" (pageAction)="pageAction($event)"></box>
         </div>
     </div>
 </div>

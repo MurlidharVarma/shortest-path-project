@@ -1,2 +1,8 @@
-<div [ngClass]="{ 'boxSelectedStyle':isSelected, 'boxDefaultStyle':!isSelected }" (mouseenter)="toggleSelect()">
+<div [ngClass]="{
+    'boxStyle': true,
+    'boxBlockedStyle': node.isBlocked,
+    'boxStartStyle': node.isStart,
+    'boxDestinationStyle': node.isDestination
+  }" (click)="toggleBlocked()">
+{{node?.x}},{{node?.y}}
 </div>

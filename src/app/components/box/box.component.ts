@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Node } from 'src/app/models/Node';
 
 @Component({
   selector: 'box',
@@ -7,20 +8,29 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BoxComponent implements OnInit {
 
-  @Input("row")
-  row: Number;
+  @Input("node")
+  node: Node;
 
-  @Input("col")
-  col: Number;
+  @Input("boxAction")
+  boxAction: string = null;
 
-  isSelected:boolean = false;
-  
+  @Output("pageAction")
+  pageAction:EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  toggleSelect(){
-    this.isSelected=true;
+  toggleBlocked(){
+    if(this.boxAction == "BLOCKER" && !this.node.isStart && !this.node.isDestination){
+      this.node.setAsBlocked();
+    }else if (this.boxAction == "START" && !this.node.isBlocked && !this.node.isDestination){
+      this.node.setAsStart();
+      this.pageAction.emit("CLEAR_BOX_ACTION");
+    }else if (this.boxAction == "DESTINATION" && !this.node.isStart && !this.node.isBlocked){
+      this.node.setAsDestination();
+      this.pageAction.emit("CLEAR_BOX_ACTION");
+    }
   }
 }

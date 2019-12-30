@@ -1,3 +1,5 @@
+@import '../../../theme.scss';
+
 .pageContainer{
     display: flex;
     flex-direction: column;
@@ -10,6 +12,25 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+button{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.buttonSelected{
+    background: mat-color($primary);
+    color:white !important;
+}
+.toolsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom:20px;
+    // margin-right: 50px;
+    // margin-left:50px;
 }
 
 .rowDiv{

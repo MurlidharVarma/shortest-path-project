@@ -10,14 +10,26 @@ $boxSize: 20px;
     border-style: solid;
     padding:0px;
     margin:0px;
-}
-
-.boxDefaultStyle{
-    @extend .boxStyle;
+    font-size:0.4em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     background:#f8f8f8;
 }
 
-.boxSelectedStyle{
-    @extend .boxStyle;
-    background: lightsalmon;
+.boxDefaultStyle{
+    background:#f8f8f8;
+}
+
+.boxBlockedStyle{
+    background: black;
+    color: white;
+}
+
+.boxStartStyle{
+    background: red;
+}
+
+.boxDestinationStyle{
+    background: blueviolet;
 }
