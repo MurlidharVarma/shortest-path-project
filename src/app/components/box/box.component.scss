@@ -1,6 +1,6 @@
 @import '../../../theme.scss';
 
-$boxSize: 20px;
+$boxSize: 30px;
 
 .boxStyle{
     width: $boxSize;
@@ -32,4 +32,16 @@ $boxSize: 20px;
 
 .boxDestinationStyle{
     background: blueviolet;
+}
+
+.boxVisitedStyle{
+    background: pink;
+}
+
+.isInShortestPath{
+    background: yellow;
+}
+
+.isInProgress{
+    background: lime;
 }

@@ -2,7 +2,10 @@
     'boxStyle': true,
     'boxBlockedStyle': node.isBlocked,
     'boxStartStyle': node.isStart,
-    'boxDestinationStyle': node.isDestination
-  }" (click)="toggleBlocked()">
-{{node?.x}},{{node?.y}}
+    'boxVisitedStyle': (node.isVisited && !node.isBlocked && !node.isDestination && !node.isStart),
+    'boxDestinationStyle': node.isDestination,
+    'isInShortestPath': node.isInShortestPath,
+    'isInProgress': node.isInProgress
+  }" (click)="onBoxClicked()">
+{{node?.distance}}
 </div>

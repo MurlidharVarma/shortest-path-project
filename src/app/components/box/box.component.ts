@@ -14,23 +14,39 @@ export class BoxComponent implements OnInit {
   @Input("boxAction")
   boxAction: string = null;
 
-  @Output("pageAction")
-  pageAction:EventEmitter<string> = new EventEmitter();
+  @Input("visited")
+  visited;
 
+  @Output("pageAction")
+  pageAction:EventEmitter<{action: string, data: any}> = new EventEmitter();
+  
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  toggleBlocked(){
+  createPageActionPayload(action: string, data: any){
+    return {
+      "action": action,
+      "data": data
+    }
+  }
+  
+  // On clicking on box emitting the respective data payload to parent page for appropriate actions
+  onBoxClicked(){
     if(this.boxAction == "BLOCKER" && !this.node.isStart && !this.node.isDestination){
       this.node.setAsBlocked();
     }else if (this.boxAction == "START" && !this.node.isBlocked && !this.node.isDestination){
       this.node.setAsStart();
-      this.pageAction.emit("CLEAR_BOX_ACTION");
+      this.pageAction.emit(this.createPageActionPayload("CLEAR_BOX_ACTION", null));
+      this.pageAction.emit(this.createPageActionPayload("SET_START_NODE", this.node));
+
     }else if (this.boxAction == "DESTINATION" && !this.node.isStart && !this.node.isBlocked){
       this.node.setAsDestination();
-      this.pageAction.emit("CLEAR_BOX_ACTION");
+      this.pageAction.emit(this.createPageActionPayload("CLEAR_BOX_ACTION", null));
+      this.pageAction.emit(this.createPageActionPayload("SET_DEST_NODE", this.node));
+
     }
   }
+
+
 }
