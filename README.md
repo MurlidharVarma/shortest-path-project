@@ -2,7 +2,7 @@
 
 Find shortest path between chosen start and destination node. <br>
 You can add blocker nodes between them to make shortest path finding more interesting. <br>
-The code is built entirely on Angular v8.3.21 and uses Dijkstra's algorithm for short path finding.<br>
+The code is built entirely on Angular v8.3.21 and uses Dijkstra's algorithm for shortest path finding.<br>
 
 ![Alt text](/demo.gif?raw=true "Preview")
 
