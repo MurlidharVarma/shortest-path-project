@@ -32,16 +32,14 @@ export class HomeComponent implements OnInit {
   // Store nodes who need to be evaluated
   evalNodeList = [];
 
-  //To toggle Visualization
-  isVisualizeOn = true;
-  VISUALIZATION_DELAY = 30 //ms
-
   constructor(private fb: FormBuilder) { 
     this.toolForm = this.fb.group({
       "rows" : [this.MAX_ROWS, Validators.compose([Validators.required, Validators.min(3), Validators.max(this.MAX_ROWS)])],
       "cols" : [this.MAX_COLS, Validators.compose([Validators.required, Validators.min(3), Validators.max(this.MAX_COLS)])],
       "startNode": [null, Validators.required],
-      "destNode": [null, Validators.required]
+      "destNode": [null, Validators.required],
+      "isVisualizeOn": [false],
+      "visualDelay":[30]
     });
 
     // subscribe to any changes to Metadata and modify grid accordingly
@@ -130,7 +128,9 @@ export class HomeComponent implements OnInit {
       rows: this.MAX_ROWS,
       cols: this.MAX_COLS,
       startNode: null,
-      destNode: null
+      destNode: null,
+      isVisualizeOn: false,
+      visualDelay: 30
     });
     this.boxAction = null;
     this.evalNodeList = [];
@@ -161,8 +161,8 @@ export class HomeComponent implements OnInit {
         this.updateNeighborsDistance(node);
       }
       //for visualization - include delay for visualize green flow
-      if(this.isVisualizeOn){
-        await this.delay(this.VISUALIZATION_DELAY);
+      if(this.toolForm.get("isVisualizeOn").value){
+        await this.delay(this.toolForm.get('visualDelay').value);
       }
       //for visualization - turn off node from green
       this.toggleNodeInProcess(node);

@@ -5,7 +5,8 @@
     'boxVisitedStyle': (node.isVisited && !node.isBlocked && !node.isDestination && !node.isStart),
     'boxDestinationStyle': node.isDestination,
     'isInShortestPath': node.isInShortestPath,
-    'isInProgress': node.isInProgress
+    'isInProgress': node.isInProgress,
+    'onHoverPointer':boxAction
   }" (click)="onBoxClicked()">
 {{node?.distance}}
 </div>

@@ -4,7 +4,9 @@ import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +34,8 @@ import { HomeComponent } from './pages/home/home.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

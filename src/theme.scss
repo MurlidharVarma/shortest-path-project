@@ -7,7 +7,7 @@
 @include mat-core();
 
 //Default color for sp
-$sp-app-primary: mat-palette($mat-teal, 800);
+$sp-app-primary: mat-palette($mat-teal, 900);
 $sp-app-accent:  mat-palette($mat-gray, 800, A100, A400);
 
 $sp-app-theme: mat-light-theme($sp-app-primary, $sp-app-accent);
