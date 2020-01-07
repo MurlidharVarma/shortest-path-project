@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent },
+  {path:'shortest-path-project', pathMatch: 'full', redirectTo:'/home'},
   {path:'', pathMatch: 'full', redirectTo:'/home'}
 ];
 
